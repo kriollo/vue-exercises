@@ -21,7 +21,9 @@ Vue.component('ppal-component',{
             <article>
                 <div class="col col-md-12">
                     <div class="row">
-                        <ppal-card class="col-3 p-0" v-for="(item,index) in productos" :key="index" :producto ="item"></ppal-card>
+                        <ppal-card class="col-3 p-0" v-for="(item,index) in productos" :key="index" :producto ="item">
+                            <template v-slot:body>{{ item.body }}</template>
+                        </ppal-card>
                     </div>
                 </div>
             </article>
@@ -30,12 +32,24 @@ Vue.component('ppal-component',{
     data() {
         return {
             productos : [
-                {nombre: 'Producto 1', precio: 100},
-                {nombre: 'Producto 2', precio: 200},
-                {nombre: 'Producto 3', precio: 300},
-                {nombre: 'Producto 4', precio: 400},
-                {nombre: 'Producto 5', precio: 500},
-                {nombre: 'Producto 6', precio: 600}
+                {nombre: 'Producto 1', precio: 100, body:`
+                    Este es el cuerpo del producto
+                `},
+                {nombre: 'Producto 2', precio: 200,body:`
+                Este es el cuerpo del producto
+            `},
+                {nombre: 'Producto 3', precio: 300,body:`
+                Este es el cuerpo del producto
+            `},
+                {nombre: 'Producto 4', precio: 400,body:`
+                Este es el cuerpo del producto
+            `},
+                {nombre: 'Producto 5', precio: 500,body:`
+                Este es el cuerpo del producto
+            `},
+                {nombre: 'Producto 6', precio: 600,body:`
+                <p>Este es el cuerpo del producto 1</p>
+            `}
             ]
         };
     },
@@ -47,7 +61,7 @@ Vue.component('ppal-card',{
                 <h2 class="text-center">{{ producto.nombre }}</h2>
             </div>
             <div class="card-body">
-                <p>card-body</p>
+                <slot name="body"></slot>
             </div>
             <div class="card-footer">
                 <p class="text-end">Valor: $ {{ producto.precio }}</p>
