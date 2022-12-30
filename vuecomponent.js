@@ -6,23 +6,23 @@ Vue.component('ppal-component',{
                 <h1 class="text-center">Componente Principal y componentes duplicados</h1>
             </header>
             <article>
-                <li>Cuando se crea un component, se debe pensar que es una encapsulación de codigo HTML</li>
-                <ul>    
-                    <li>El componente puede ser reutilizado en cualquier parte de la aplicación</li>
-                    <li>El componente puede recibir parametros mediante los PROPS</li>
-                    <li>El componente puede tener un estado (son las variable locales del componente, o globales si usas VUEX)</li>
-                    <li>El componente puede tener un ciclo de vida (created, mounted, destroy, etc.)</li>
-                    <li>El componente puede tener un scope (todo lo que pasa en el componente queda dentro del componente a menos que uses Vuex) </li>
-                    <li>El componente puede tener un slot (puedes inyectar codigo html dentro de un componente declaran un "slot"</li>
-                    <li>El componente puede tener un evento  (seccion methods) </li>
-                    <li>El componente puede tener un estilo (adopta los css declarados en la pagina principal)</li>    
+                <li>Cuando se crea un componente, se debe pensar que es una encapsulación de codigo HTML</li>
+                <ul>
+                    <li>Puede ser reutilizado en cualquier parte de la aplicación</li>
+                    <li>Puede recibir parametros mediante los PROPS</li>
+                    <li>Puede tener un estado (son las variable locales del componente, o globales si usas VUEX)</li>
+                    <li>Puede tener un ciclo de vida (created, mounted, destroy, etc.)</li>
+                    <li>Puede tener un scope (todo lo que pasa en el componente queda dentro del componente a menos que uses Vuex) </li>
+                    <li>Puede tener un slot (puedes inyectar codigo html dentro de un componente declaran un "slot"</li>
+                    <li>Puede tener un evento  (seccion methods) </li>
+                    <li>Puede tener un estilo (adopta los css declarados en la pagina principal)</li>    
                 </ul>
-                
-
             </article>
             <article>
-                <div class="row">
-                    <ppal-card v-for="(item,index) in productos" :key="index" :producto ="item"></ppal-card>
+                <div class="col col-md-12">
+                    <div class="row">
+                        <ppal-card class="col-3 p-0" v-for="(item,index) in productos" :key="index" :producto ="item"></ppal-card>
+                    </div>
                 </div>
             </article>
         </main>
@@ -42,7 +42,7 @@ Vue.component('ppal-component',{
 });
 Vue.component('ppal-card',{
     template: `
-        <div class="card col col-md-3">
+        <div class="card">
             <div class="card-header">
                 <h2 class="text-center">{{ producto.nombre }}</h2>
             </div>
