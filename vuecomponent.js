@@ -22,7 +22,7 @@ Vue.component("ppal-component", {
                 <div class="col col-md-12">
                     <div class="row">
                         <ppal-card class="col-3 p-0" v-for="(item,index) in productos" :key="index" :producto ="item">
-                            <template v-slot:body>{{ item.body }}</template>
+                            <template v-slot:body><p v-html="item.body"></p></template>
                         </ppal-card>
                     </div>
                 </div>
@@ -35,9 +35,7 @@ Vue.component("ppal-component", {
         {
           nombre: "Producto 1",
           precio: 100,
-          body: `
-                    Este es el cuerpo del producto
-                `,
+          body: `Este es el cuerpo del producto`,
         },
         {
           nombre: "Producto 2",
