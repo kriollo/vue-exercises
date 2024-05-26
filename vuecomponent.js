@@ -1,6 +1,6 @@
 "use strict";
-Vue.component('ppal-component',{
-    template: `
+Vue.component("ppal-component", {
+  template: `
         <main>
             <header>
                 <h1 class="text-center">Componente Principal y componentes duplicados</h1>
@@ -15,7 +15,7 @@ Vue.component('ppal-component',{
                     <li>Puede tener un scope (todo lo que pasa en el componente queda dentro del componente a menos que uses Vuex) </li>
                     <li>Puede tener un slot (puedes inyectar codigo html dentro de un componente declaran un "slot"</li>
                     <li>Puede tener un evento  (seccion methods) </li>
-                    <li>Puede tener un estilo (adopta los css declarados en la pagina principal)</li>    
+                    <li>Puede tener un estilo (adopta los css declarados en la pagina principal)</li>
                 </ul>
             </article>
             <article>
@@ -29,33 +29,64 @@ Vue.component('ppal-component',{
             </article>
         </main>
     `,
-    data() {
-        return {
-            productos : [
-                {nombre: 'Producto 1', precio: 100, body:`
+  data() {
+    return {
+      productos: [
+        {
+          nombre: "Producto 1",
+          precio: 100,
+          body: `
                     Este es el cuerpo del producto
-                `},
-                {nombre: 'Producto 2', precio: 200,body:`
+                `,
+        },
+        {
+          nombre: "Producto 2",
+          precio: 200,
+          body: `
                 Este es el cuerpo del producto
-            `},
-                {nombre: 'Producto 3', precio: 300,body:`
+            `,
+        },
+        {
+          nombre: "Producto 3",
+          precio: 300,
+          body: `
                 Este es el cuerpo del producto
-            `},
-                {nombre: 'Producto 4', precio: 400,body:`
+            `,
+        },
+        {
+          nombre: "Producto 4",
+          precio: 400,
+          body: `
                 Este es el cuerpo del producto
-            `},
-                {nombre: 'Producto 5', precio: 500,body:`
+            `,
+        },
+        {
+          nombre: "Producto 5",
+          precio: 500,
+          body: `
                 Este es el cuerpo del producto
-            `},
-                {nombre: 'Producto 6', precio: 600,body:`
+            `,
+        },
+        {
+          nombre: "Producto 6",
+          precio: 600,
+          body: `
                 <p>Este es el cuerpo del producto 1</p>
-            `}
-            ]
-        };
-    },
+            `,
+        },
+        {
+          nombre: "Producto 7",
+          precio: 700,
+          body: `Este es el cuerpo del producto 2`,
+        },
+      ],
+    };
+  },
+  created() {},
+  mounted() {},
 });
-Vue.component('ppal-card',{
-    template: `
+Vue.component("ppal-card", {
+  template: `
         <div class="card">
             <div class="card-header">
                 <h2 class="text-center">{{ producto.nombre }}</h2>
@@ -68,15 +99,14 @@ Vue.component('ppal-card',{
             </div>
         </div>
     `,
-    props : {
-        producto : {
-            type : Object,
-            required : true
-        }
-    }
+  props: {
+    producto: {
+      type: Object,
+      required: true,
+    },
+  },
 });
 
-
 const app = new Vue({
-    el: '#app',
-})
+  el: "#app",
+});
